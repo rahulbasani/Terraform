@@ -8,7 +8,7 @@ resource "aws_vpc" "tf_vpc" {
 }
 
 resource "aws_subnet" "public_subnet" {
-  vpc_id                  = aws_vpc.tf_vpc
+  vpc_id                  = aws_vpc.tf_vpc.id
   count                   = var.num_public_subnets
   cidr_block              = var.public_subnet_cidr[count.index]
   map_public_ip_on_launch = true
@@ -20,7 +20,7 @@ resource "aws_subnet" "public_subnet" {
 }
 
 resource "aws_subnet" "private_subnet" {
-  vpc_id            = aws_vpc.tf_vpc
+  vpc_id            = aws_vpc.tf_vpc.id
   count             = var.num_private_subnets
   cidr_block        = var.private_subnet_cidr[count.index]
   availability_zone = var.azs[count.index]
@@ -47,7 +47,7 @@ resource "aws_route_table" "public_route" {
   }
 
   tags = {
-    "Nmae" = "Public Route Table"
+    "Name" = "Public Route Table"
   }
 }
 

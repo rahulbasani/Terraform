@@ -1,2 +1,6 @@
 root/*
 !/root/main.tf
+!/root/outputs.tf
+!/root/variables.tf
+!/root/terraform.tfvars
+
