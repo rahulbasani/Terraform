@@ -3,4 +3,4 @@ root/*
 !/root/outputs.tf
 !/root/variables.tf
 !/root/terraform.tfvars
-
+!/root/providers.tf
