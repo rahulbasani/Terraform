@@ -8,3 +8,13 @@ module "mod_vpc" {
   private_subnet_cidr = var.private_subnet_cidr
   azs                 = var.azs
 }
+
+module "mod_sg" {
+  source      = "../modules/security_group"
+  vpc_id      = module.mod_vpc.vpc_id
+  sg_name     = var.sg_name
+  from_port   = var.from_port
+  to_port     = var.to_port
+  sg_cidr     = var.sg_cidr
+  sg_protocol = var.sg_protocol
+}
