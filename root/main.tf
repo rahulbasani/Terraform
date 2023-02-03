@@ -30,3 +30,14 @@ module "mod_instance" {
   sg_ids        = [module.mod_sg.sg_id]
   ec2_name      = var.ec2_name
 }
+
+module "mod_alb" {
+  source = "../modules/loadbalancer"
+  lb_name = var.lb_name
+  load_sgs = [module.mod_sg.sg_id]
+  subnets = module.mod_vpc.public_subnets
+  target_group_port = var.target_group_port
+  lb_protocol = var.lb_protocol
+  vpc_id = module.mod_vpc.vpc_id
+  instance_id = module.mod_instance.instance_id
+}

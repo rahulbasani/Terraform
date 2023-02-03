@@ -12,7 +12,7 @@ resource "aws_lb" "tf_load" {
 }
 
 resource "aws_lb_target_group" "tf_load_target" {
-  name        = "tf_${var.lb_name}_targetgroup"
+  name        = "tf-${var.lb_name}-targetgroup"
   port        = var.target_group_port
   protocol    = var.lb_protocol
   vpc_id      = var.vpc_id
