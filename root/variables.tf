@@ -87,3 +87,18 @@ variable "ec2_name" {
   type        = string
   description = "name of ec2 instance"
 }
+
+variable "lb_name" {
+  type        = string
+  description = "name of load balancer"
+}
+
+variable "target_group_port" {
+  type        = number
+  description = "port number for the target group"
+}
+
+variable "lb_protocol" {
+  type        = string
+  description = "load balancer protocol"
+}

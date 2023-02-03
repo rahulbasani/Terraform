@@ -21,6 +21,7 @@ module "mod_sg" {
 
 module "mod_instance" {
   source        = "../modules/instance"
+  num_instances = length(module.mod_vpc.public_subnets)
   ami           = var.ami_id
   instance_type = var.instance_type
   subnet_id     = module.mod_vpc.public_subnets
