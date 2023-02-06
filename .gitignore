@@ -4,3 +4,5 @@ root/*
 !/root/variables.tf
 !/root/terraform.tfvars
 !/root/providers.tf
+!/root/userdata.sh
+
