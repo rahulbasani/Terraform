@@ -15,3 +15,6 @@ instance_type       = "t2.micro"
 key_pair            = "singapore"
 is_pub              = true
 ec2_name            = "public"
+http_sg_name             = "HTTP"
+http_from_port           = 80
+http_to_port             = 80

@@ -19,6 +19,16 @@ module "mod_sg" {
   sg_protocol = var.sg_protocol
 }
 
+module "mod_http_sg" {
+  source      = "../modules/security_group"
+  vpc_id      = module.mod_vpc.vpc_id
+  sg_name     = var.http_sg_name
+  from_port   = var.http_from_port
+  to_port     = var.http_to_port
+  sg_cidr     = var.sg_cidr
+  sg_protocol = var.sg_protocol
+}
+
 module "mod_instance" {
   source        = "../modules/instance"
   ami           = var.ami_id
@@ -26,6 +36,7 @@ module "mod_instance" {
   subnet_id     = module.mod_vpc.public_subnets
   key           = var.key_pair
   is_pub        = var.is_pub
-  sg_ids        = [module.mod_sg.sg_id]
+  sg_ids        = [module.mod_sg.sg_id,module.mod_http_sg.sg_id]
   ec2_name      = var.ec2_name
+  path = "userdata.sh"
 }
