@@ -1,3 +1,4 @@
+# VPC variables
 variable "vpc_cidr" {
   type        = string
   description = "cidr range of vpc"
@@ -33,22 +34,24 @@ variable "azs" {
   description = "availability zones"
 }
 
-variable "sg_name" {
+# Security Group Variables
+
+variable "ssh_sg_name" {
   type        = string
   description = "security group name"
 }
 
-variable "from_port" {
+variable "ssh_from_port" {
   type        = number
   description = "From Port number for ingress rule"
 }
 
-variable "to_port" {
+variable "ssh_to_port" {
   type        = number
   description = "To Port number for ingress rule"
 }
 
-variable "sg_cidr" {
+variable "ssh_sg_cidr" {
   type        = list(any)
   description = "source traffic cidr range"
 }
@@ -72,6 +75,13 @@ variable "http_to_port" {
   type        = number
   description = "To Port number for ingress rule"
 }
+
+variable "http_sg_cidr" {
+  type        = list(any)
+  description = "source traffic cidr range"
+}
+
+# Ec2 Variables
 
 variable "num_instances" {
   type        = number
@@ -107,6 +117,8 @@ variable "lb_name" {
   type        = string
   description = "name of load balancer"
 }
+
+# Load Balancer Variables
 
 variable "target_group_port" {
   type        = number
