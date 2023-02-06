@@ -6,7 +6,7 @@ resource "aws_instance" "tf_instance" {
   key_name                    = var.key
   associate_public_ip_address = var.is_pub
   vpc_security_group_ids      = var.sg_ids
-  user_data                   = file("userdata.sh")
+  user_data                   = file(var.path)
 
   tags = {
     "Name" = "TF-${var.ec2_name}-${count.index}"
