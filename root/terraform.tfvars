@@ -18,3 +18,7 @@ ec2_name            = "public"
 lb_name             = "http"
 target_group_port   = 80
 lb_protocol         = "HTTP"
+http_sg_name             = "HTTP"
+http_from_port           = 80
+http_to_port             = 80
+

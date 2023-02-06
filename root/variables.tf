@@ -58,6 +58,21 @@ variable "sg_protocol" {
   description = "protocol for ingress rule"
 }
 
+variable "http_sg_name" {
+  type        = string
+  description = "security group name"
+}
+
+variable "http_from_port" {
+  type        = number
+  description = "From Port number for ingress rule"
+}
+
+variable "http_to_port" {
+  type        = number
+  description = "To Port number for ingress rule"
+}
+
 variable "num_instances" {
   type        = number
   description = "number of instances"

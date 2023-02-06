@@ -37,3 +37,7 @@ variable "ec2_name" {
   type        = string
   description = "name of ec2 instance"
 }
+
+variable "path" {
+  type = string
+}
