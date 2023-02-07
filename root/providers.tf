@@ -3,6 +3,7 @@ terraform {
     bucket = "statefilesterraform"
     key    = "modules/terraform.tfstate"
     region = "ap-south-1"
+    dynamodb_table = "TerraformStateLocking"
   }
   required_providers {
     aws = {
